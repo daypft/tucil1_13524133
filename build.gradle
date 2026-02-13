@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'
+    // PERBAIKAN: Ganti 0.0.13 menjadi 0.1.0 agar kompatibel dengan Gradle 8+
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'com.tucil1'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        // Sesuai dengan Java 21 yang terinstall di laptopmu
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+javafx {
+    // Kita gunakan JavaFX 21 agar sinkron dengan Java-nya
+    version = "21"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    // Pastikan nanti kamu membuat class Main di folder:
+    // src/main/java/com/tucil1/Main.java
+    mainClass = 'com.tucil1.Main'
+}
+
+// Konfigurasi agar input scanner terminal berfungsi
+run {
+    standardInput = System.in
+}
