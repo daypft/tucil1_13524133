@@ -23,9 +23,4 @@ public class Cell {
     public char getRegion(){
         return this.region;
     }
-
-    @Override
-    public String toString() {
-        return String.format("Cell[%d,%d](%c)", row, col, region);
-    }
 }
