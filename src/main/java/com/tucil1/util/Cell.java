@@ -5,7 +5,6 @@ public class Cell {
     private int col;
     private char region;
 
-    // Constructor
     public Cell (int row, int col, char region) {
         this.row = row;
         this.col = col;

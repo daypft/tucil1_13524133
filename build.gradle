@@ -28,7 +28,8 @@ javafx {
 application {
     // Pastikan nanti kamu membuat class Main di folder:
     // src/main/java/com/tucil1/Main.java
-    mainClass = 'com.tucil1.Main'
+    // mainClass = 'com.tucil1.Main'
+    mainClass = 'com.tucil1.gui.QueensGUI'
 }
 
 // Konfigurasi agar input scanner terminal berfungsi

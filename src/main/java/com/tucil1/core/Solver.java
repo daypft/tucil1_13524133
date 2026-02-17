@@ -1,67 +1,76 @@
 package com.tucil1.core;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.tucil1.core.Board;
-import com.tucil1.util.Cell;
+import java.util.Arrays;
 
 public class Solver {
     private Board board;
     private boolean found;
     private long totalCase;
-    private List<Character> regionOrder;
 
     public Solver(Board board) {
         this.board = board;
         this.found = false;
         this.totalCase = 0;
-        this.regionOrder = board.getAllRegions();
     }
 
-    public void solve() {
-        List<List<Cell>> allRegionsCells = new ArrayList<>();
-        for (char color : regionOrder) {
-            allRegionsCells.add(board.getCellsInRegion(color));
+    public void solve(){
+        found = false;
+        totalCase = 0;
+
+        int n = board.getSize();
+        boolean[][] q = board.getQueens();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (q[i][j]) {
+                    board.removeQueen(i, j);
+                }
+            }
         }
 
-        int n = allRegionsCells.size();
-        int[] indices = new int[n];
+        int[] p = new int[n];
+        Arrays.fill(p, -1);
 
-        while (true) {
-            for (int i = 0; i < n; i++) {
-                Cell c = allRegionsCells.get(i).get(indices[i]);
-                board.placeQueen(c.getRow(), c.getCol());
-            }
+        int i = 0;
+        while (i >= 0) {
+            boolean adv = false;
+            int s = p[i] + 1;
 
-            totalCase++;
+            for (int j = s; j < n; j++){
+                totalCase++;
 
-            if (board.isValidTotal()) {
-                found = true;
-                return;
-            }
+                board.placeQueen(i, j);
+                p[i] = j;
 
-            for (int i = 0; i < n; i++) {
-                Cell c = allRegionsCells.get(i).get(indices[i]);
-                board.removeQueen(c.getRow(), c.getCol());
-            }
-
-            int pos = n - 1;
-            while (pos >= 0) {
-                indices[pos]++;
-                if (indices[pos] < allRegionsCells.get(pos).size()) {
-                    break;
+                if (i == n - 1) {
+                    if (board.isValid()){
+                        found = true;
+                        return;
+                    }
+                    board.removeQueen(i, j);
+                    p[i] = -1;
+                    continue;
                 }
-                indices[pos] = 0;
-                pos--;
-            }
 
-            if (pos < 0) {
+                i++;
+                p[i] = -1;
+                adv = true;
                 break;
             }
+
+            if (!adv){
+                p[i] = -1;
+                i--;
+                if (i >= 0){
+                    int k = p[i];
+                    if (k >= 0) {
+                        board.removeQueen(i, k);
+                    }
+                }
+            }
         }
     }
 
-    public long getTotalCase() {
+    public long getTotalCase(){
         return totalCase;
     }
 

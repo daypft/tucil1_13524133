@@ -1,17 +1,12 @@
 package com.tucil1.core;
 
-import com.tucil1.core.Board;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.ArrayList;
-
 
 public class Parser {
     public static Board readBoard (String filepath){
-        Board board = null;
         try {
             File file = new File (filepath);
             Scanner reader = new Scanner (file);
@@ -26,7 +21,17 @@ public class Parser {
             reader.close();
 
             int n = lines.size();
-            board = new Board(n);
+            if (n <= 0) {
+                return null;
+            }
+
+            for (String line : lines) {
+                if (line.length() != n) {
+                    return null;
+                }
+            }
+
+            Board board = new Board(n);
             
             for (int i = 0; i < n; i++){
                 String line = lines.get(i);

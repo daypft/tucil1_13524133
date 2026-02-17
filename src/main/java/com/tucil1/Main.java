@@ -33,12 +33,11 @@ public class Main {
 
             if (solver.isFound()) {
                 status = "berhasil";
-            } else if (regionCount > n) {
-                status = "wilayah lebih dari col&row";
-            } else {
+            } 
+            else {
                 status = "tidak mendapat solusi";
             }
-
+            System.out.println("Done)");            
             System.out.println("Hasil: " + status);
             System.out.println("Waktu pencarian: " + duration + " ms");
             System.out.println("Banyak kasus yang ditinjau: " + solver.getTotalCase() + " kasus");
@@ -57,7 +56,7 @@ public class Main {
             }
 
         } else {
-            System.out.println("Error: File tidak ditemukan atau kosong.");
+            System.out.println("Error: File tidak ditemukan, kosong, atau format tidak valid.");
         }
 
         scanner.close();
