@@ -43,7 +43,7 @@ public class Parser {
             return board;
 
         } catch (FileNotFoundException e){
-            System.out.println("File not found: " + e.getMessage());
+            System.out.println("File tidak ada: " + e.getMessage());
             return null;
         }
     }
