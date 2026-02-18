@@ -82,10 +82,10 @@ public class QueensGUI extends Application {
         statusLabel.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 
         timeLabel = new Label("Waktu: - ms");
-        timeLabel.setFont(Font.font("Monospaced", 13));
+        timeLabel.setFont(Font.font("Arial", 13));
 
         caseLabel = new Label("Kasus ditinjau: -");
-        caseLabel.setFont(Font.font("Monospaced", 13));
+        caseLabel.setFont(Font.font("Arial", 13));
 
         VBox bottom = new VBox(6);
         bottom.setPadding(new Insets(10, 0, 0, 0));
