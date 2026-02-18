@@ -25,7 +25,7 @@ Program Java untuk menyelesaikan variasi N-Queens berbasis region menggunakan pe
   - tidak boleh satu baris,
   - tidak boleh satu kolom,
   - tidak boleh satu region,
-  - tidak boleh berdampingan (8 arah).
+  - tidak boleh berdampingan.
 - GUI JavaFX:
   - Load puzzle `.txt`,
   - Solve,
