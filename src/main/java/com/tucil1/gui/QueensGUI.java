@@ -46,7 +46,7 @@ public class QueensGUI extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
-        primaryStage.setTitle("N-Queens Logic Solver");
+        primaryStage.setTitle("Queens Solver");
 
         BorderPane root = buildRootLayout();
         Scene scene = new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT);

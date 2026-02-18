@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
+//Untuk ngambil snapshot ratu tiap 10000 kasus
 public class LiveUpdateController {
     private static final long SNAPSHOT_INTERVAL = 1000;
 
