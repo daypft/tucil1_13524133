@@ -196,11 +196,11 @@ public class QueensGUI extends Application {
             caseLabel.setText("Kasus ditinjau: " + solver.getTotalCase());
 
             if (solver.isFound()) {
-                statusLabel.setText("Status: SOLUSI DITEMUKAN!");
+                statusLabel.setText("Status: Solusi ditemukan");
                 statusLabel.setTextFill(Color.GREEN);
                 drawBoard();
             } else {
-                statusLabel.setText("Status: TIDAK ADA SOLUSI.");
+                statusLabel.setText("Status: Tidak mendapat solusi");
                 statusLabel.setTextFill(Color.RED);
             }
         });
